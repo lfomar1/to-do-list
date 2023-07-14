@@ -15,12 +15,13 @@ body {
   color: var(--text-color);
   font-family: var(--font-family);
   display: grid;
+  grid-template-columns: 1fr 3fr;
+  grid-template-rows: 1fr 85% 1fr;
   grid-template-areas:
     "header header"
     "sidebar content"
-    "sidebar content"
     "footer footer";
-  height: 100%;
+  height: 100vh;
 }
 header {
   grid-area: header;
@@ -35,11 +36,54 @@ header {
 
 .side-bar {
   grid-area: sidebar;
+  display: flex;
+  flex-direction: column;
+  gap: 50px;
+  max-width: 300px;
+  padding: 20px;
+}
+.home {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+.home > h1 {
+  display: flex;
+  justify-content: center;
+  border-bottom: 2px solid var(--text-color);
+  margin-bottom: 20px;
+}
+.projects {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.projects-content {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+.new-projects > h1 {
+  display: flex;
+  justify-content: center;
+  border-bottom: 2px solid var(--text-color);
+  margin-bottom: 20px;
+}
+.new-projects button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 5px 10px;
+  font-weight: 600;
+  font-size: 20px;
+  width: 100%;
+  cursor: pointer;
 }
 .projects {
   grid-area: content;
-  margin: 0 auto;
+  padding: 20px;
 }
+
 footer {
   grid-area: footer;
   margin: 0 auto;
