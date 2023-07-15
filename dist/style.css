@@ -53,6 +53,10 @@ header {
   border-bottom: 2px solid var(--text-color);
   margin-bottom: 20px;
 }
+.home div:hover {
+  cursor: pointer;
+  text-decoration: underline;
+}
 .projects {
   display: flex;
   flex-direction: column;
@@ -85,6 +89,9 @@ header {
 }
 
 footer {
+  display: flex;
+  align-items: center;
+  gap: 10px;
   grid-area: footer;
   margin: 0 auto;
 }

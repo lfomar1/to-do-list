@@ -1,6 +1,7 @@
 const contentDiv = document.querySelector(".projects-content");
 function createNewProject() {
   const newProject = document.createElement("div");
+  newProject.classList.add("new-project");
   newProject.style.borderColor = "#03DAC5";
   newProject.style.borderStyle = "solid";
   newProject.style.borderWidth = "2px";
@@ -55,6 +56,7 @@ function createNewProject() {
   buttonDiv.style.justifyContent = "center";
   buttonDiv.style.gap = "20px";
   const addButton = document.createElement("button");
+  addButton.classList.add("add-btn-form");
   addButton.textContent = "Add";
   addButton.style.width = "100px";
   addButton.style.padding = "5px 10px";
