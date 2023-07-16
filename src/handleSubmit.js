@@ -15,9 +15,12 @@ function handleSubmit() {
   formValues.date.push(dateValue);
 
   //Take form values, and create a template
-  const titleValueForm = formValues.title[0];
-  const descriptionValueForm = formValues.description[0];
-  const dateValueForm = formValues.date[0];
+  let titleValueForm = formValues.title[0];
+  formValues.title = [];
+  let descriptionValueForm = formValues.description[0];
+  formValues.description = [];
+  let dateValueForm = formValues.date[0];
+  formValues.date = [];
 
   const newInfo = document.createElement("div");
   newInfo.style.borderColor = "#03DAC5";
@@ -43,6 +46,36 @@ function handleSubmit() {
   newInfoDate.textContent = dateValueForm;
   newInfo.appendChild(newInfoDate);
 
+  const features = document.createElement("div");
+  features.classList.add("features");
+  features.style.order = 1;
+  features.style.marginLeft = "auto";
+  features.style.display = "flex";
+  features.style.gap = "10px";
+
+  const editBtn = document.createElement("span");
+  editBtn.classList.add("material-symbols-outlined");
+  editBtn.innerText = "edit";
+  editBtn.setAttribute("id", "edit");
+  const starBtn = document.createElement("span");
+  starBtn.classList.add("material-symbols-outlined");
+  starBtn.innerText = "star";
+  starBtn.setAttribute("id", "star");
+  const deletBtn = document.createElement("span");
+  deletBtn.classList.add("material-symbols-outlined");
+  deletBtn.setAttribute("id", "delete");
+  deletBtn.innerText = "delete";
+
+  features.appendChild(editBtn);
+  features.appendChild(starBtn);
+  features.appendChild(deletBtn);
+  newInfo.appendChild(features);
+
   content.appendChild(newInfo);
+
+  //Clear all arrays after submiting it
+  titleValueForm = undefined;
+  descriptionValueForm = undefined;
+  dateValueForm = undefined;
 }
 export default handleSubmit;

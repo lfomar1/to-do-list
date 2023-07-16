@@ -4,6 +4,7 @@
   --body-color: #121212;
   --text-color: #ffffff;
   --font-family: "Roboto", sans-serif;
+  --delete-color: #cf6679;
 }
 * {
   margin: 0;
@@ -87,7 +88,18 @@ header {
   grid-area: content;
   padding: 20px;
 }
+#edit:hover,
+#star:hover,
+#delete:hover {
+  cursor: pointer;
+}
 
+#star:hover {
+  color: gold;
+}
+#delete:hover {
+  color: var(--delete-color);
+}
 footer {
   display: flex;
   align-items: center;

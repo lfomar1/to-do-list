@@ -65,7 +65,9 @@ function createNewProject() {
   addButton.style.cursor = "pointer";
   addButton.style.backgroundColor = "#4caf50";
   addButton.style.fontWeight = "bold";
+
   const removeButton = document.createElement("button");
+  removeButton.classList.add("remove-btn");
   removeButton.textContent = "Remove";
   removeButton.style.width = "100px";
   removeButton.style.padding = "5px 10px";
@@ -81,6 +83,7 @@ function createNewProject() {
   newProject.appendChild(descriptionDiv);
   newProject.appendChild(dateDiv);
   newProject.appendChild(buttonDiv);
+
   return newProject;
 }
 export default createNewProject;
