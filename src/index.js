@@ -24,4 +24,6 @@ addBtn.addEventListener("click", () => {
   //Remove Btn
   const removeBtn = document.querySelector(".remove-btn");
   removeBtn.addEventListener("click", removeBtnFn);
+
+  const deleteBtn = document.getElementById("delete");
 });

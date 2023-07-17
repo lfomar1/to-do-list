@@ -23,6 +23,7 @@ function handleSubmit() {
   formValues.date = [];
 
   const newInfo = document.createElement("div");
+  newInfo.classList.add("new-info");
   newInfo.style.borderColor = "#03DAC5";
   newInfo.style.borderStyle = "solid";
   newInfo.style.borderWidth = "2px";
@@ -73,6 +74,15 @@ function handleSubmit() {
 
   content.appendChild(newInfo);
 
+  //Delete the selected div
+  deletBtn.addEventListener("click", function () {
+    const newInfoDIVs = document.querySelectorAll(".new-info");
+    newInfoDIVs.forEach(function (div) {
+      div.addEventListener("click", function () {
+        this.remove();
+      });
+    });
+  });
   //Clear all arrays after submiting it
   titleValueForm = undefined;
   descriptionValueForm = undefined;
