@@ -73,7 +73,13 @@ function handleSubmit() {
   newInfo.appendChild(features);
 
   content.appendChild(newInfo);
+  const tittleH1 = document.querySelector(".projects-h1");
 
+  const allTasks = document.querySelector(".all-tasks");
+  allTasks.addEventListener("click", function () {
+    content.appendChild(newInfo);
+    tittleH1.innerText = "All tasks!";
+  });
   //Delete the selected div
   deletBtn.addEventListener("click", function () {
     const newInfoDIVs = document.querySelectorAll(".new-info");
@@ -83,6 +89,52 @@ function handleSubmit() {
       });
     });
   });
+  starBtn.addEventListener("click", function () {
+    newInfo.setAttribute("id", "important-on");
+    starBtn.style.color = "gold";
+  });
+  const importantBtn = document.querySelector(".important");
+  importantBtn.addEventListener("click", function () {
+    if (newInfo.getAttribute("id") !== "important-on") {
+      if (content.contains(newInfo)) {
+        content.removeChild(newInfo);
+      }
+    }
+    tittleH1.innerText = "Important Tasks!";
+  });
+
+  const today = document.querySelector(".today");
+  today.addEventListener("click", function () {
+    const today = new Date();
+    const currentDate =
+      today.getFullYear() +
+      "-" +
+      (today.getMonth() + 1).toString().padStart(2, "0") +
+      "-" +
+      today.getDate().toString().padStart(2, "0");
+    if (dateValue !== currentDate) {
+      if (content.contains(newInfo)) {
+        content.removeChild(newInfo);
+      }
+    }
+    tittleH1.innerText = "Today's Tasks!";
+  });
+
+  const nextWeek = document.querySelector(".seven-days");
+  nextWeek.addEventListener("click", function () {
+    const today = new Date();
+    const nextSevenDays = new Date();
+    nextSevenDays.setDate(today.getDate() + 7);
+    const nextSevenDaysFormatted = nextSevenDays.toISOString().split("T")[0];
+
+    if (dateValue > nextSevenDaysFormatted) {
+      if (content.contains(newInfo)) {
+        content.removeChild(newInfo);
+      }
+    }
+    tittleH1.innerText = "Next Week Tasks!";
+  });
+
   //Clear all arrays after submiting it
   titleValueForm = undefined;
   descriptionValueForm = undefined;
